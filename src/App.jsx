@@ -1,28 +1,46 @@
-import { useState } from 'react'
+import { Helmet } from 'react-helmet';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import About from './components/About';
+import Pricing from './components/Pricing';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
+const colors = {
+  bg: '#FEF9E1',
+  secondary: '#E5D0AC',
+  accent: '#A31D1D',
+  dark: '#6D2323',
+};
 
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <div style={{ backgroundColor: colors.bg }}>
+      <Helmet>
+        <html lang="en" />
+        <title>TekGridAI — AI Supply Chain Visibility</title>
+        <meta name="description" content="Visualize and optimize your global supply chain with AI. Predict disruptions, simulate scenarios, and act with confidence." />
+        <meta property="og:title" content="TekGridAI — AI Supply Chain Visibility" />
+        <meta property="og:description" content="Visualize and optimize your global supply chain with AI." />
+        <meta property="og:type" content="website" />
+        <meta name="theme-color" content={colors.bg} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+      </Helmet>
 
-export default App
+      <a href="#home" className="sr-only">Skip to content</a>
+
+      <Header />
+      <main>
+        <Hero />
+        <Features />
+        <About />
+        <Pricing />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
